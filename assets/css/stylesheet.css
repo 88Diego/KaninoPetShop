@@ -553,10 +553,11 @@ section ul.perfil {
 }
 
 section ul.perfil li {
-    display: inline-block;
+    display: block;
     width: 29%;
     margin: 0 17px;
     text-align: left;
+    float: left;
 }
 
 section .empresa {
