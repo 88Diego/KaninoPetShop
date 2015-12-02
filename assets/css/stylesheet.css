@@ -1,0 +1,795 @@
+/*
+**	>> BASE
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, a {
+  display: block;
+}
+
+/* remember to define focus styles! */
+*:focus {
+  outline: none;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+html, body {
+  line-height: 1;
+  height: 100%;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+hr, del {
+  display: none;
+}
+
+abbr {
+  cursor: help;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*
+**	>> LAYOUT
+*/
+@font-face {
+  font-family: 'robotoregular';
+  src: url("../fonts/roboto-regular-webfont-webfont.eot");
+  src: url("../fonts/roboto-regular-webfont-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto-regular-webfont-webfont.woff2") format("woff2"), url("../fonts/roboto-regular-webfont-webfont.woff") format("woff"), url("../fonts/roboto-regular-webfont-webfont.ttf") format("truetype"), url("../fonts/roboto-regular-webfont-webfont.svg#robotoregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'robotobold';
+  src: url("../fonts/roboto-bold-webfont-webfont.eot");
+  src: url("../fonts/roboto-bold-webfont-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto-bold-webfont-webfont.woff2") format("woff2"), url("../fonts/roboto-bold-webfont-webfont.woff") format("woff"), url("../fonts/roboto-bold-webfont-webfont.ttf") format("truetype"), url("../fonts/roboto-bold-webfont-webfont.svg#robotobold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'robotomedium';
+  src: url("../fonts/roboto-medium-webfont-webfont.eot");
+  src: url("../fonts/roboto-medium-webfont-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto-medium-webfont-webfont.woff2") format("woff2"), url("../fonts/roboto-medium-webfont-webfont.woff") format("woff"), url("../fonts/roboto-medium-webfont-webfont.ttf") format("truetype"), url("../fonts/roboto-medium-webfont-webfont.svg#webfontregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+html,
+body {
+  font-family: "robotoregular";
+}
+
+.clear {
+  display: block;
+  float: none;
+  clear: both;
+  width: 0;
+  height: 0;
+}
+
+.container {
+  width: 100%;
+  min-width: 320px;
+  max-width: 1024px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.bt {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  display: table;
+  font-size: 13px;
+  color: #3e2622;
+  padding: 5px 7px;
+  margin: 13px 0 0 0;
+  font-weight: bold;
+}
+.bt.yellow {
+  background-color: #f9ec0d;
+}
+
+.triggerNav {
+  display: none;
+}
+
+#wrap {
+  width: 100%;
+  height: auto;
+  position: relative;
+  display: block;
+  padding: 121px 0 0 0;
+}
+
+h2 {
+  font-size: 33px;
+  color: #000000;
+  margin: 1.5em 0;
+  font-family: "robotobold";
+}
+h2 strong {
+  font-family: "robotoregular";
+  display: block;
+  font-size: 15px;
+  padding: 15px 0 0;
+  line-height: 20px;
+}
+h2 strong em {
+  font-family: "robotobold";
+}
+
+h3 {
+  font-family: "robotobold";
+  color: #000;
+  font-size: 37px;
+  margin: 1.5em 0 0;
+}
+
+header {
+  background-color: rgba(249, 236, 19, 0.9);
+  border-bottom: solid 7px #3e2622;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+  height: 121px;
+}
+header h1 {
+  float: left;
+  width: 10.8%;
+  margin: 0.5% 0;
+  height: auto;
+}
+header h1 a {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+header h1 a img {
+  display: block;
+}
+header nav {
+  display: table;
+  float: right;
+  width: 60%;
+}
+header nav a {
+  display: table-cell;
+  float: left;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 121px;
+  font-size: 16px;
+  color: #3e2622;
+  width: 20%;
+  min-width: 92px;
+}
+header nav a:hover, header nav a.active {
+  background-color: #9b8918;
+  color: #ffffff;
+}
+
+figure {
+  width: 100%;
+  border-bottom: solid 7px #3e2622;
+  background: rgba(249, 236, 19, 0.9);
+}
+figure a {
+  display: block !important;
+  opacity: 0;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 129px;
+}
+figure a img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+figure a.active {
+  opacity: 1;
+  display: block;
+  -webkit-transition: opacity 1s ease;
+  -moz-transition: opacity 1s ease;
+  -o-transition: opacity 1s ease;
+  transition: opacity 1s ease;
+  position: relative;
+  top: 0;
+}
+
+section {
+  background-color: #fff;
+}
+
+footer {
+  background-color: #f9ec0d;
+  line-height: 61px;
+  margin: 62px 0 0;
+}
+footer .authors {
+  display: table;
+  margin: 0 auto;
+  text-align: center;
+}
+footer .authors li {
+  display: inline-block;
+  text-align: center;
+  padding: 0 5px;
+  font-size: 15px;
+  font-size: 14px;
+  color: #231f20;
+}
+footer .more {
+  display: table;
+  margin: 0 auto;
+  text-align: center;
+}
+footer .more li,
+footer .more a {
+  display: inline-block;
+  text-align: center;
+  padding: 0 5px;
+  font-size: 14px;
+  color: #231f20;
+  text-decoration: underline;
+}
+footer .more li.dif,
+footer .more a.dif {
+  text-decoration: none;
+  display: block;
+  line-height: 1;
+  font-family: "robotobold";
+}
+
+section .reasons {
+  display: table;
+  margin: 0 auto;
+}
+section .reasons li {
+  display: inline-block;
+  text-align: center;
+  padding: 0 30px;
+}
+section .reasons li img {
+  display: block;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+}
+section .about {
+  display: table;
+  margin: 0 auto;
+}
+section .about li {
+  display: inline-block;
+  width: 100%;
+}
+section .about li img {
+  width: auto;
+  height: auto;
+  display: inline-block;
+}
+section .about li p {
+  display: inline-block;
+  font-size: 14px;
+  color: #231f20;
+  margin: 0 0 0 1.3em;
+  width: 40%;
+  vertical-align: top;
+}
+section .about li p.sobre {
+  width: 60%;
+}
+
+section img.theproj {
+  display: inline-block;
+  width: auto;
+  height: 100%;
+  margin: 7em 3.2em 0 0;
+}
+section .theproj {
+  display: inline-block;
+  width: 47%;
+  vertical-align: top;
+  margin: 7em 0 0 0;
+}
+section .theproj h2 {
+  margin: 0 0 2em 0;
+}
+
+#accordion {
+  margin: 0 auto;
+  display: table;
+  width: 1024px;
+  position: relative;
+}
+#accordion li {
+  top: 0;
+  position: relative;
+  border-bottom: solid 5px white;
+}
+#accordion li a {
+  background-color: #3e2622;
+  color: #fee900;
+  font-size: 18px;
+  font-family: "robotobold";
+  line-height: 62px;
+  padding: 0 50px;
+  -moz-border-radius-topright: 10px;
+  -webkit-border-top-right-radius: 10px;
+  border-top-right-radius: 10px;
+  -moz-border-radius-topleft: 10px;
+  -webkit-border-top-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+#accordion li div.content {
+  background-color: #fcf586;
+  padding: 20px 50px 30px;
+  display: none;
+}
+#accordion li div.content p {
+  font-size: 14px;
+  color: #231f20;
+  font-family: "robotoregular";
+}
+#accordion li div.content ul {
+  display: table;
+  margin: 0 auto;
+}
+#accordion li div.content ul li {
+  display: inline-block;
+  background: none;
+  margin: 10px 5px;
+  border: none;
+}
+#accordion li div.content ul li a {
+  background: none;
+  margin: 0;
+  padding: 0;
+  background-color: #3e2622;
+  width: auto;
+  padding: 0 20px;
+  height: 60px;
+  border-radius: 0;
+  text-align: center;
+  line-height: 60px;
+}
+#accordion li.active {
+  top: 0;
+  position: relative;
+  padding-bottom: 0;
+  border: none;
+}
+
+section ul.about_perfil li {
+  width: 67%;
+  display: inline-block;
+}
+section ul.about_perfil li.contact {
+  width: 25%;
+  margin: 0 0 0 70px;
+}
+section ul.perfil {
+  display: table;
+}
+section ul.perfil li {
+  display: inline-block;
+  width: 29%;
+  margin: 0 17px;
+  text-align: left;
+}
+
+section .empresa {
+  margin: 20px auto;
+}
+section .empresa img {
+  display: inline-block;
+}
+section .empresa h2 {
+  width: 30%;
+  display: inline-block;
+  vertical-align: top;
+  margin: 35px 0 0 15px;
+}
+section .tarja {
+  margin: 17px 0;
+  background: #3e2622;
+  line-height: 79px;
+  width: 100%;
+  text-align: center;
+  font-size: 26px;
+  color: #fee900;
+}
+section .about_empresa li {
+  width: 31%;
+  display: inline-block;
+  margin: 0px 15px 0 0;
+}
+
+section .qr-code {
+  background-color: #fbf154;
+}
+section .qr-code img {
+  margin: 0 auto;
+  display: block;
+  padding: 5% 0 0;
+}
+section .qr-code figcaption {
+  text-align: center;
+  font-family: "robotobold";
+  font-size: 37px;
+  line-height: 3;
+}
+section .about_aplicativo li {
+  width: 45%;
+  display: inline-block;
+  margin: 0px 15px 0 0;
+}
+section .steps {
+  border: none;
+  background-color: transparent;
+}
+section .steps figcaption {
+  font-family: "robotobold";
+  color: #000;
+  font-size: 37px;
+  margin: 1.5em 0;
+}
+section .steps img.mobile {
+  display: none;
+}
+
+@media screen and (max-width: 1023px) {
+  #wrap {
+    padding: 0;
+  }
+
+  header {
+    position: relative;
+  }
+  header .container {
+    width: 100%;
+  }
+
+  h2 {
+    margin: 1.5em 0 1.5em 0;
+  }
+  h2 strong {
+    display: block;
+    font-size: 18px;
+    color: #231f20;
+    width: auto;
+    vertical-align: top;
+  }
+
+  h3 {
+    margin: 1.5em 0 0 0;
+  }
+
+  .bt {
+    margin: 1.5em 0;
+    font-size: 19px;
+  }
+
+  .container {
+    min-width: 320px;
+    width: 90%;
+  }
+
+  .triggerNav {
+    display: block;
+    background: url(../img/triggerNav.gif) top center no-repeat;
+    width: 105px;
+    height: 86px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
+  header nav {
+    display: none;
+    width: 100%;
+  }
+  header nav a {
+    display: block;
+    width: 100%;
+    background-color: #3e2622;
+    color: #f9ec0d;
+    font-size: 1.8rem;
+  }
+  header nav a.active {
+    background-color: #634e1e;
+    color: white;
+  }
+
+  section #accordion {
+    width: 100%;
+    margin: 1.5em auto;
+  }
+  section #carousel {
+    width: 72%;
+  }
+  section .reasons li {
+    padding: 0 4%;
+    width: 25%;
+  }
+  section .reasons li img {
+    width: 100%;
+    height: auto;
+  }
+  section .about li {
+    width: 100%;
+  }
+  section .about li img {
+    display: none;
+  }
+  section .about li p {
+    display: block;
+    font-size: 18px;
+    color: #231f20;
+    width: auto;
+    margin: 0;
+    vertical-align: top;
+  }
+  section .about li p.sobre {
+    width: auto;
+  }
+  section .about li .bt {
+    margin: 1.5em 0;
+  }
+  section .empresa {
+    margin: 0;
+    width: 100%;
+  }
+  section .empresa img {
+    width: 100%;
+    height: auto;
+  }
+  section .empresa h2 {
+    width: 90%;
+    margin: 1.5em auto;
+    display: block;
+  }
+  section .empresa h2 strong {
+    display: block;
+    font-size: 18px;
+    padding: 15px 0;
+    line-height: 35px;
+  }
+  section img.theproj {
+    width: 90%;
+    margin: 0 auto;
+    display: block;
+  }
+  section .theproj {
+    display: block;
+    width: 100%;
+  }
+  section .theproj h2 {
+    width: auto;
+    margin: 0;
+  }
+  section .theproj h2 strong {
+    font-size: 18px;
+    color: #231f20;
+    width: auto;
+    vertical-align: top;
+  }
+  section .steps figcaption {
+    margin: 1.5em 0 1.5em 0;
+  }
+  section .steps img {
+    display: none;
+  }
+  section .steps img.mobile {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 auto 3em;
+  }
+  section ul.about_perfil li {
+    width: 90%;
+  }
+  section ul.about_perfil li.contact {
+    width: 100%;
+    margin: 0;
+  }
+  section ul.perfil li {
+    width: 25%;
+    margin: 0 4%;
+  }
+  section ul.perfil li img {
+    width: 100%;
+    height: auto;
+  }
+  section ul.perfil li h2 {
+    margin: 0 0 2em;
+  }
+  section .about_aplicativo li {
+    width: 100%;
+  }
+  section .arrows {
+    position: absolute;
+    top: 505px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 103%;
+    height: 85px;
+  }
+
+  footer {
+    margin: 0;
+  }
+  footer a.more {
+    right: 1rem;
+  }
+}
+/*
+**	>> PLUGINS
+*/
+#carousel {
+  overflow: hidden;
+  width: 868px;
+  margin: 0 0 0 85px;
+  padding: 0 61px 0 0;
+  box-sizing: border-box;
+}
+#carousel .bullets {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+#carousel .bullets .bullet {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  background-color: #fff;
+  display: inline-block;
+  margin: 0 2px 0 2px;
+}
+#carousel .bullets .bullet.selected {
+  background-color: #ed1650;
+}
+#carousel .carousel-list {
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+  height: 307px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+#carousel .carousel-list .item {
+  float: left;
+  position: relative;
+  overflow: hidden;
+  background: url(../img/bg_box-carousel.png) top right no-repeat;
+  width: 202px;
+  height: 307px;
+  display: inline-block;
+  padding: 0;
+  margin: 0 15px 0 0;
+}
+#carousel .carousel-list .item img {
+  display: table-cell;
+  margin: 17px auto;
+  width: auto;
+  height: auto;
+}
+#carousel .carousel-list .item p {
+  display: table;
+  text-align: center;
+  width: 100%;
+  color: #3e2723;
+  font-size: 17px;
+  vertical-align: middle;
+  height: 95px;
+  position: relative;
+  padding: 10px 0 0;
+  font-family: "robotomedium";
+}
+#carousel .carousel-list .item p strong {
+  font-size: 20px;
+  color: #f9ec0d;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-weight: bold;
+}
+#carousel .carousel-list .item:hover, #carousel .carousel-list .item:active, #carousel .carousel-list .item:focus {
+  background-position: top left;
+}
+#carousel .carousel-list .item:hover p > strong, #carousel .carousel-list .item:active p > strong, #carousel .carousel-list .item:focus p > strong {
+  color: #3e2723;
+}
+
+.arrows {
+  position: absolute;
+  top: 550px;
+  left: 49.3%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 85px;
+}
+.arrows .bt-controls, .arrows .left, .arrows .right {
+  display: inline-block;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  height: 85px;
+  width: 76px;
+  outline: none;
+  -webkit-tap-hightlight-color: transparent;
+}
+.arrows .left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: url(../img/left-bt.png) top left no-repeat;
+}
+.arrows .left:hover, .arrows .left:active, .arrows .left:focus {
+  background-position: -76px 0;
+}
+.arrows .right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: url(../img/right-bt.png) top right no-repeat;
+}
+.arrows .right:hover, .arrows .right:active, .arrows .right:focus {
+  background-position: -76px 0;
+}
